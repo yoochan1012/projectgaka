@@ -1,0 +1,17 @@
+import win32com.client
+
+from excelgaka import new_filename
+
+excel = win32com.client.Dispatch("Excel.Application")
+
+wb = excel.Workbooks.Open(new_filename)
+
+ws_report = wb.Worksheets("report")
+
+pdf_path = "C\jjy\report.pdf"
+
+wb.ActiveSheet.ExportAsFoxedFormat(0, pdf_path)
+
+wb.Close(False)
+
+excel.Quit()

@@ -1,0 +1,17 @@
+def btn3_click(self):
+        if (path.exists("C:\jjy\Windo.bat")) is True:
+            f = "report.pdf"
+######
+            excel = win32com.client.Dispatch("Excel.Application")
+            excel.Visible = False
+            wb = excel.Workbooks.Open("C:\jjy\취약점 진단 결과.xlsx")
+            ws_report = wb.Worksheets("report")
+            ws_report.Select()
+            pdf = "C:\jjy\취약점 진단 결과.pdf"
+            wb.ActiveSheet.ExportAsFixedFormat(0, pdf)
+            wb.Close(False)
+            excel.Quit()
+
+            os.startfile(pdf)
+        else:
+            self.third_b3.setDisabled(True)
